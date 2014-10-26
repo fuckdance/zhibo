@@ -1,0 +1,56 @@
+body{background:url(../images/bg-zhibo.jpg) no-repeat center center;}
+.top{height:45px;line-height:45px;background-color:#0f4377;}
+.side-left{width:298px;float:left;margin-left:10px;}
+.side-right{width:436px;float:right;margin-right:10px;}
+.main-body{margin-left:318px;margin-right:456px;min-width:500px;}
+.teacher-list{height:193px;}
+.teacher-list .madel-body{height:163px;}
+.online-member {height:498px;}
+.online-member .madel-body {height:468px;}
+.online-member .madel-body .list,.teacher-list .madel-body .list {margin:0 13px;}
+
+
+.ico,.btn{background-image:url(../images/ico-sprite.png);background-repeat:no-repeat;}
+.ico,.btn{width:20px;height:20px;vertical-align:middle;display:inline-block;line-height:20px;}
+.ico-teacher{background-position:-8px -5px;}
+.ico-member{background-position:-40px -5px;}
+.ico-font{background-position:-212px -7px;}
+.ico-smile{background-position:-158px -9px;}
+.ico-image{background-position:-147px -51px;width:25px;}
+.ico-sex-male{background-position:-70px -5px;}
+.ico-sex-female{background-position:-100px -5px;}
+.ico-level-crown{background-position:-272px -7px;height:22px;}
+.ico-level-moon{background-position:-305px -7px;height:22px;}
+.ico-level-star{background-position:-340px -9px;height:22px;}
+.ico-level-block{background-position:-373px -7px;height:22px;}
+.btn{white-space:nowrap;width:auto;background-position:9999px 9999px;cursor:pointer;}
+.btn-msgEdit{width:40px;text-align:center;background-position:-351px -51px;font-size:12px;font-family:"\5B8B\4F53";line-height:20px;}
+.btn-send{background-position:-315px -138px;width:76px;height:26px;text-align:center;line-height:26px;text-indent:0;}
+
+.side-right .tab,.side-right .video{margin-top:10px;}
+.madel{margin-top:10px;}
+.madel-title,.chat-tools,.chat-bottom,.chat-title{height:30px;background:url(../images/bg-madel-title.png) repeat-x 0 0;color:#fff;line-height:30px;text-indent:10px;}
+.madel-title em{padding:0 10px;}
+.madel-body{background:url(../images/bg-madel-body.png) repeat;padding-right:6px;overflow:auto;}
+.madel-body .list li{height:40px;line-height:40px;border-bottom:1px solid #617f99;position:relative;color:#d3dbe2;}
+.madel-body .list .ico-level-star,.madel-body .list .ico-level-crown,.madel-body .list .ico-level-block,.madel-body .list .ico-level-moon{position:absolute;right:0px;top:10px;}
+.author-name{padding:0 10px;}
+.chat-messages,.chat-inputArea,.chat-messages{background:url(../images/bg-madel-body.png) repeat;}
+.chat{padding-top:10px;}
+.chat-title{text-align:center;}
+.chat-messages{height:480px;padding:0 10px;}
+.chat-inputArea{height:100px;}
+.chat-inputArea textarea{height:95px;width:100%;background:none;border:0;font-size:16px;color:#fff;line-height:1.2;}
+.chat-messages .time{color:#000;}
+.msg-content{display:inline-block;position:relative;background:url(../images/bg-msg.png) repeat;height:30px;border-radius:5px;padding:0 7px;color:#fffefe;}
+.chat-messages p{padding:10px 0;line-height:30px;}
+.chat-tools .btn-normal{font-size:12px;font-family:"\5B8B\4F53";}
+.chat-tools,.chat-bottom {position:relative;}
+.p-right{position:absolute;right:15px;top:5px;font-size:14px;}
+.chat-bottom  .p-right{top:2px;}
+.tab-menu{height:50px;}
+.tab-menu li{height:50px;float:left;padding:0px 15px;line-height:50px;}
+.tab-menu .ui-tabs-active,.tab-container{background:url(../images/bg-madel-title.png) repeat;}
+.tab-container{height:214px;padding:15px;}
+.tab-menu li a{color:#fff;text-decoration:none;}
+
