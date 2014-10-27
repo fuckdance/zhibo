@@ -8,34 +8,49 @@
 		<meta content="" name="author" />
 		<link rel="stylesheet" href="css/reset.css"/>
 		<link rel="stylesheet" href="css/common.css"/>
+		<link rel="stylesheet" href="css/emoticon.css"/>
 		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.emoticons.js"></script>
 		<script type="text/javascript">
-			$(function(){
-				$('.tab').tabs();
+			
+			$(function(){// 主要方法
+				$('.tab').tabs();//tabs切换
+				$('.btn-clear').bind('click',function(){$('.chat-messages-view').html('')});//清屏
+				$('.btn-scroll').bind('click',function(){
+					$(this).toggleClass('flag');
+					$(this).is('.flag')?(function(){$('.chat-messages-view').animate({scrollTop:$('.chat-messages-view')[0].scrollHeight});window._scrollTime=setTimeout(arguments.callee,2000)})():(function(){clearTimeout(window._scrollTime)})();
+				});//滚动
+				$(".ico-smile").jqfaceedit({txtAreaObj:$("#chat-inputArea-input"),containerObj:$(".ico-smile").parent(),top:-226,left:1});//表情
 			});
+			
+			$(function(){// 测试 需删除
+				+function appendMsg(){
+					$('.chat-messages-view').append('<p><span class="time">02:16</span><span class="author-name">姜文</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>');
+					setTimeout(appendMsg,2000);
+				}();
+			})
 		</script>
 	</head>
 	<body>
 		<!--// top -->
 		<div class="top">
-			<span class="logo"></span>
+			<span class="logo">logo</span>
 			<span class="limit line"></span>
 			<span class="btn curriculum">课程安排</span>
 			<!--// client serve -->
-			<label for="" class="title"></label>
-			<span class="item"></span>
-			<span class="item"></span>
-			<span class="item"></span>
-			<span class="item"></span>
-			<span class="item"></span>
-			<span class="item"></span>
+			<label for="" class="title">客服咨询:</label>
+			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
+			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
+			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
+			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
+			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
 			<!-- client serve //-->
-			<span class="more"></span>
+			<span class="btn more">&gt;&gt;更多</span>
 			
 			<!--// login & register -->
-			<span class="btn login">登录</span>
-			<span class="btn register">注册</span>			
+			<span class="btn login"><a href="">登录</a></span>
+			<span class="btn register"><a href="">注册</a></span>			
 			<!-- login & register //-->
 			
 		</div>
@@ -73,7 +88,6 @@
 			<div class="side-right">
 				<!--// video -->
 					<div class="video">
-						<div class="video-control"></div>
 						<div class="video-play">
 							<img src="images/t_01.jpg" alt=""/>
 						</div>
@@ -115,22 +129,29 @@
 					<div class="chat-title">公告栏</div>
 					<div class="chat-title">名语展示</div>
 					<div class="chat-messages">
-						<p><span class="time">02:16</span><span class="author-name">习大大</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
-						<p><span class="time">02:16</span><span class="author-name">李克强</span><font class="msg-content">终于能发言了，终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
-						<p><span class="time">02:16</span><span class="author-name">刘德华</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
-						<p><span class="time">02:16</span><span class="author-name">姜文</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+						<div class="chat-messages-view">
+							<p><span class="time">02:16</span><span class="author-name">习大大</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+							<p><span class="time">02:16</span><span class="author-name">李克强</span><font class="msg-content">终于能发言了，终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+							<p><span class="time">02:16</span><span class="author-name">刘德华</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+							<p><span class="time">02:16</span><span class="author-name">姜文</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+						</div>
+						<div class="chat-messages-plan">
+							<div class="assist">							
+								<span class="btn btn-clear">清屏</span>
+								<span class="btn btn-scroll">滚动</span>
+								<span class="time">2014-10-28</span>	
+							</div>
+						</div>
 					</div>
 					<div class="chat-tools">
 						<span class="ico ico-font"></span>
 						<span class="ico ico-smile"></span>
 						<span class="ico ico-image"></span>
-						<span class="btn btn-normal">清屏</span>
-						<span class="btn btn-normal">滚动</span>
 						<span class="btn btn-normal">提问</span>
 						<span class="btn p-right">我的私聊</span>
 					</div>
 					<div class="chat-inputArea">
-						<textarea name="" id="" cols="30" rows="10"></textarea>
+						<textarea name="" id="chat-inputArea-input" cols="30" rows="10"></textarea>
 					</div>
 					<div class="chat-bottom">
 						<span class="btn btn-send p-right">发送</span>
