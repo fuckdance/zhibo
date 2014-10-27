@@ -6,11 +6,15 @@
 		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
 		<meta content="" name="description" />
 		<meta content="" name="author" />
-		<link rel="stylesheet" href="reset.css"/>
-		<link rel="stylesheet" href="common.css"/>
-		<link rel="stylesheet" href="jquery-ui.min.css"/>
+		<link rel="stylesheet" href="css/reset.css"/>
+		<link rel="stylesheet" href="css/common.css"/>
 		<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.tab').tabs();
+			});
+		</script>
 	</head>
 	<body>
 		<!--// top -->
@@ -40,51 +44,100 @@
 		<div class="main">
 			<div class="side-left">
 				<!--// teacher list -->
-				<div class="madel">
+				<div class="madel teacher-list">
 					<div class="madel-title">老师客服列表<em>(3)</em></div>
 					<div class="madel-body">
 						<ul class='list'>
-							<li><span class="ico identity-flag"></span>分析老师</li>
+							<li><span class="ico ico-teacher"></span><span class="author-name">分析老师</span></li>
+							<li><span class="ico ico-teacher"></span><span class="author-name">分析老师</span></li>
 						</ul>
 					</div>
 				</div>
 				<!-- teacher list //-->
 				
 				<!--// online member -->
-				<div class="madel">
+				<div class="madel online-member">
 					<div class="madel-title">在线会员<em>(2349)</em></div>
 					<div class="madel-body">
 						<ul class='list'>
-							<li><span class="ico identity-flag"></span>Nevermore<span class="ico sex sex-male"></span><span class="ico level-crown"></span></li>
-							<li><span class="ico identity-flag"></span>拉娜雅<span class="ico sex sex-female"></span><span class="ico level-star"></span></li>
-							<li><span class="ico identity-flag"></span>viper<span class="ico sex sex-female"></span><span class="ico level-moon"></span></li>
-							<li><span class="ico identity-flag"></span>Puck<span class="ico sex sex-female"></span><span class="ico level-block"></span></li>
+							<li><span class="ico ico-member"></span><span class="author-name">Nevermore</span><span class="ico  ico-sex-male"></span><span class="ico ico-level-crown"></span></li>
+							<li><span class="ico ico-member"></span><span class="author-name">拉娜雅</span><span class="ico  ico-sex-female"></span><span class="ico ico-level-star"></span></li>
+							<li><span class="ico ico-member"></span><span class="author-name">viper</span><span class="ico  ico-sex-female"></span><span class="ico ico-level-moon"></span></li>
+							<li><span class="ico ico-member"></span><span class="author-name">Puck</span><span class="ico  ico-sex-female"></span><span class="ico ico-level-block"></span></li>
 						</ul>
 					</div>
 				</div>
-				<!-- online member //-->
-				
+				<!-- online member //-->				
 			</div>
-			<div class="mian-body">
-				
-				<!--// chat room -->
-				<div class="char">
-					<div class="char-title">名语展示</div>
-					<div class="char-messages">
-						<p><span class="time">02:16</span><span class="msg-author">Nevermore</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
-						<p><span class="time">02:16</span><span class="msg-author">Nevermore</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
-						<p><span class="time">02:16</span><span class="msg-author">Nevermore</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
-						<p><span class="time">02:16</span><span class="msg-author">Nevermore</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+			
+			<div class="side-right">
+				<!--// video -->
+					<div class="video">
+						<div class="video-control"></div>
+						<div class="video-play">
+							<img src="images/t_01.jpg" alt=""/>
+						</div>
 					</div>
-					<div class="char-tools"></div>
-					<div class="char-inputArea">
+				<!-- video //-->
+				<!--// tab -->
+					<div class="tab">						
+						<ul class="tab-menu">
+							<li><a href="#tabs-1">喊单</a></li>
+							<li><a href="#tabs-2">交易提示</a></li>
+							<li><a href="#tabs-3">问答</a></li>
+							<li><a href="#tabs-4">公司简介</a></li>
+							<li><a href="#tabs-5">上市品种</a></li>
+						</ul>
+						<div class="tab-container">
+							<div id="tabs-1">
+								<p>1昨日的小反弹不改整体空头形态，预计行情将先反弹后下跌，操作上建议做空为主，支撑位短多。下方支撑位3430    3400，上方压力位3480   3520。注意3430到3460一线做空的机会！</p>
+							</div>
+							<div id="tabs-2">
+								<p>2昨日的小反弹不改整体空头形态，预计行情将先反弹后下跌，操作上建议做空为主，支撑位短多。下方支撑位3430    3400，上方压力位3480   3520。注意3430到3460一线做空的机会！</p>
+							</div>
+							<div id="tabs-3">
+								<p>3昨日的小反弹不改整体空头形态，预计行情将先反弹后下跌，操作上建议做空为主，支撑位短多。下方支撑位3430    3400，上方压力位3480   3520。注意3430到3460一线做空的机会！</p>
+							</div>
+							<div id="tabs-4">
+								<p>4昨日的小反弹不改整体空头形态，预计行情将先反弹后下跌，操作上建议做空为主，支撑位短多。下方支撑位3430    3400，上方压力位3480   3520。注意3430到3460一线做空的机会！</p>
+							</div>
+							<div id="tabs-5">
+								<p>5昨日的小反弹不改整体空头形态，预计行情将先反弹后下跌，操作上建议做空为主，支撑位短多。下方支撑位3430    3400，上方压力位3480   3520。注意3430到3460一线做空的机会！</p>
+							</div>						
+						</div>
+					</div>				
+				<!--  tab //-->
+			</div>
+			
+			<div class="main-body">				
+				<!--// chat room -->
+				<div class="chat">
+					<div class="chat-title">公告栏</div>
+					<div class="chat-title">名语展示</div>
+					<div class="chat-messages">
+						<p><span class="time">02:16</span><span class="author-name">习大大</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+						<p><span class="time">02:16</span><span class="author-name">李克强</span><font class="msg-content">终于能发言了，终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+						<p><span class="time">02:16</span><span class="author-name">刘德华</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+						<p><span class="time">02:16</span><span class="author-name">姜文</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+					</div>
+					<div class="chat-tools">
+						<span class="ico ico-font"></span>
+						<span class="ico ico-smile"></span>
+						<span class="ico ico-image"></span>
+						<span class="btn btn-normal">清屏</span>
+						<span class="btn btn-normal">滚动</span>
+						<span class="btn btn-normal">提问</span>
+						<span class="btn p-right">我的私聊</span>
+					</div>
+					<div class="chat-inputArea">
 						<textarea name="" id="" cols="30" rows="10"></textarea>
 					</div>
-					<div class="char-bottom"></div>
+					<div class="chat-bottom">
+						<span class="btn btn-send p-right">发送</span>
+					</div>
 				</div>
 				<!-- chat room //-->
 			</div>
-			<div class="side-right"></div>
 		</div>
 		<!-- main //-->
 		
