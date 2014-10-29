@@ -79,7 +79,7 @@
                     setFocusText.focus();
                     // 默认使用focus方法聚焦
                     // 判断是否为Ie浏览器
-                    if($.browser.msie) {
+                    if($.browser&&$.browser.msie) {
                         var txt = setFocusText[0].createTextRange();
                         // 将传入的控件对象转换为Dom对象，并创建一个TextRange对象
                         txt.moveStart('character', setFocusTextLeg);

@@ -15,6 +15,26 @@
 		<script type="text/javascript">
 			
 			$(function(){// 主要方法
+				var dialogSettings={
+					modal:true,
+					dialogClass:'no-title',
+					create:function(){
+						var dialog=$(this);
+						dialog.tabs();
+						$(this).find('.btn-close').click(function(){
+							dialog.dialog('destroy');
+						});
+					}
+				};
+				
+				$('.curriculum').bind('click',function(){$('<div></div>').append($('.dialog-timetable').clone()).dialog($.extend({width:480},dialogSettings))});//课程安排
+				$('.top .more').bind('click',function(){$('<div></div>').append($('.dialog-serve').clone()).dialog($.extend({width:646},dialogSettings))});//更多客服
+				$('.btn-askOrder').bind('click',function(){$('<div></div>').append($('.dialog-order').clone()).dialog($.extend({width:480},dialogSettings))});//喊单
+				$('.btn-client-privateMsg').bind('click',function(){$('<div></div>').append($('.dialog-client').clone()).dialog($.extend({width:510},dialogSettings))});//我的私聊客户
+				$('.btn-teacher-privateMsg').bind('click',function(){$('<div></div>').append($('.dialog-teacher').clone()).dialog($.extend({width:510},dialogSettings))});//我的私聊老师
+				
+				
+				
 				$('.tab').tabs();//tabs切换
 				$('.btn-clear').bind('click',function(){$('.chat-messages-view').html('')});//清屏
 				$('.btn-scroll').bind('click',function(){
@@ -35,16 +55,16 @@
 	<body>
 		<!--// top -->
 		<div class="top">
-			<span class="logo">logo</span>
+			<span class="logo"><img src="images/logo.png" alt=""/></span>
 			<span class="limit line"></span>
 			<span class="btn curriculum">课程安排</span>
 			<!--// client serve -->
 			<label for="" class="title">客服咨询:</label>
-			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
-			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
-			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
-			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
-			<span class="item"><a href=""><img src="images/t_02.jpg" alt=""/></a></span>
+			<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+			<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+			<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+			<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+			<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
 			<!-- client serve //-->
 			<span class="btn more">&gt;&gt;更多</span>
 			
@@ -75,10 +95,10 @@
 					<div class="madel-title">在线会员<em>(2349)</em></div>
 					<div class="madel-body">
 						<ul class='list'>
-							<li><span class="ico ico-member"></span><span class="author-name">Nevermore</span><span class="ico  ico-sex-male"></span><span class="ico ico-level-crown"></span></li>
-							<li><span class="ico ico-member"></span><span class="author-name">拉娜雅</span><span class="ico  ico-sex-female"></span><span class="ico ico-level-star"></span></li>
-							<li><span class="ico ico-member"></span><span class="author-name">viper</span><span class="ico  ico-sex-female"></span><span class="ico ico-level-moon"></span></li>
-							<li><span class="ico ico-member"></span><span class="author-name">Puck</span><span class="ico  ico-sex-female"></span><span class="ico ico-level-block"></span></li>
+							<li><img src="images/ico-member.png" class="ico ico-member"/><span class="author-name">Nevermore</span><img src="images/ico-sex-male.png" class="ico  ico-sex-male" /><img src="images/ico-level-crown.png" class="ico ico-level-crown"/></li>
+							<li><img src="images/ico-member.png" class="ico ico-member"/><span class="author-name">拉娜雅</span><img src="images/ico-sex-female.png" class="ico  ico-sex-female"/><img src="images/ico-level-star.png" class="ico ico-level-star"/></li>
+							<li><img src="images/ico-member.png" class="ico ico-member"/><span class="author-name">viper</span><img src="images/ico-sex-female.png" class="ico  ico-sex-female"/><img src="images/ico-level-moon.png" class="ico ico-level-moon"/></li>
+							<li><img src="images/ico-member.png" class="ico ico-member"/><span class="author-name">Puck</span><img src="images/ico-sex-female.png" class="ico  ico-sex-female"/><img src="images/ico-level-block.png" class="ico ico-level-block"/></li>
 						</ul>
 					</div>
 				</div>
@@ -130,7 +150,7 @@
 					<div class="chat-title">名语展示</div>
 					<div class="chat-messages">
 						<div class="chat-messages-view">
-							<p><span class="time">02:16</span><span class="author-name">习大大</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+							<p><span class="time">02:16</span><img src="images/ico-member.png" class="ico ico-member"/><span class="author-name">习大大</span><img src="images/ico-level-crown.png" class="ico ico-level-crown"/><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
 							<p><span class="time">02:16</span><span class="author-name">李克强</span><font class="msg-content">终于能发言了，终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
 							<p><span class="time">02:16</span><span class="author-name">刘德华</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
 							<p><span class="time">02:16</span><span class="author-name">姜文</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
@@ -146,9 +166,12 @@
 					<div class="chat-tools">
 						<span class="ico ico-font"></span>
 						<span class="ico ico-smile"></span>
-						<span class="ico ico-image"></span>
-						<span class="btn btn-normal">提问</span>
-						<span class="btn p-right">我的私聊</span>
+						<span class="ico ico-image"><input type="file" name="uploadFile" /></span>
+						<span class="btn btn-askOrder btn-normal">喊单</span>
+						<span class="btn btn-question btn-normal">提问</span>
+						<span class="btn btn-dealTips btn-normal">交易提示</span>
+						<span class="btn btn-teacher-privateMsg btn-normal">我的私聊</span>
+						<span class="btn btn-client-privateMsg p-right">我的私聊</span>
 					</div>
 					<div class="chat-inputArea">
 						<textarea name="" id="chat-inputArea-input" cols="30" rows="10"></textarea>
@@ -162,5 +185,157 @@
 		</div>
 		<!-- main //-->
 		
+		<!--//**  dialog  **// -->
+		<div class="dialog-list">
+			<!--/ 课程安排 /-->
+			<div class="dialog dialog-timetable">
+				<div class="dialog-head">课程安排时间表（周一至周五）<span class="btn btn-close">×</span></div>
+				<div class="dialog-body">
+					<table border=1 cellspacing=0 cellpadding=0 width=100% >
+						<tr>
+							<th width=50%>时间安排</th>
+							<th width=50%>主讲老师</th>
+						</tr>
+						<tr>
+							<td>22:23-22:30</td>
+							<td>王老师</td>
+						</tr>
+						<tr>
+							<td>22:23-22:30</td>
+							<td>王老师</td>
+						</tr>
+						<tr>
+							<td>22:23-22:30</td>
+							<td>王老师</td>
+						</tr>
+						<tr>
+							<td>22:23-22:30</td>
+							<td>王老师</td>
+						</tr>
+						<tr>
+							<td>22:23-22:30</td>
+							<td>王老师</td>
+						</tr>
+						<tr>
+							<td>22:23-22:30</td>
+							<td>王老师</td>
+						</tr>
+					</table>
+				</div>
+			</div> 
+			
+			<!--/ 更多客服 /-->
+			<div class="dialog dialog-serve">
+				<div class="dialog-head">
+					<div class="logo"><img src="images/logo.png" alt=""/></div>
+					<span class="btn btn-close"><img src="images/btn-close-01.png" alt=""/></span>
+				</div>
+				<div class="dialog-body">				
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					<span class="item"><img  style="CURSOR: pointer" onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=550811022&o=ceshi&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');"  border="0" SRC='images/t_02.jpg' alt="点击这里给我发消息"></span>
+					
+				</div>
+			</div>
+			
+			<!--/ 喊单 /-->
+			<div class="dialog dialog-order tab">
+				<div class="dialog-head">					
+					<span class="btn btn-close">×</span>
+				</div>
+				<div class="dialog-body">					
+					<ul class="order-type">
+						<li><a href="#askOrderHistory">喊单记录</a></li>
+						<li><a href="#newAskOrder">新喊单</a></li>
+					</ul>					
+					<div class="order-container">
+						<div id="askOrderHistory"></div>
+						<div id="newAskOrder">
+							<textarea name="" id="" cols="30" rows="10"></textarea>
+							<span class="btn btn-send">发送</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--/ 私聊*客户 /-->
+			<div class="dialog dialog-client tab">
+				<div class="dialog-head">
+					<span class="btn btn-close">×</span>
+				</div>
+				<div class="dialog-body">
+					<ul class="msg-client-list">
+						<li><a href="#msg_content_5">老师</a><span class="btn btn-subClose"><img src="images/btn-subClose.png" alt=""/></span></li>
+						<li><a href="#msg_content_6">助理1</a><span class="btn btn-subClose"><img src="images/btn-subClose.png" alt=""/></span></li>
+					</ul>
+					<div class="msg-content-list">
+						<div id="msg_content_5">
+							<div class="msg-container">
+								<p><span class="time">02:16</span><span class="author-name">习大大:</span>终于能发言了，大家好~</p>
+								<p><span class="time">02:16</span><span class="author-name">李克强:</span>终于能发言了，终于能发言了，大家好~</p>
+								<p><span class="time">02:16</span><span class="author-name">刘德华:</span>终于能发言了，大家好~</p>
+								<p><span class="time">02:16</span><span class="author-name">姜文:</span>终于能发言了，大家好</p>
+							</div>						
+						</div>
+						<div id="msg_content_6">
+							<div class="msg-container"></div>						
+						</div>
+					</div>
+					<div class="msg-content-entry">
+						<textarea name="" id="" cols="30" rows="10"></textarea>
+						<span class="btn btn-send p-right">发送</span>
+					</div>
+				</div>
+			</div>
+			
+			<!--/ 私聊*老师 /-->
+			<div class="dialog dialog-teacher tab">
+				<div class="dialog-head">
+					<span class="btn btn-close">×</span>
+				</div>
+				<div class="dialog-body">
+					<ul class="msg-client-list">
+						<li><a href="#msg_content_1">哈卡斯0</a><span class="btn btn-subClose"><img src="images/btn-subClose.png" alt=""/></span></li>
+						<li><a href="#msg_content_2">哈卡斯1</a><span class="btn btn-subClose"><img src="images/btn-subClose.png" alt=""/></span></li>
+						<li><a href="#msg_content_3">哈卡斯2</a><span class="btn btn-subClose"><img src="images/btn-subClose.png" alt=""/></span></li>
+						<li><a href="#msg_content_4">哈卡斯3</a><span class="btn btn-subClose"><img src="images/btn-subClose.png" alt=""/></span></li>
+					</ul>
+					<div class="msg-content-list">
+						<div id="msg_content_1">
+							<div class="client-name">哈卡斯0</div>
+							<div class="msg-container">
+								<p><span class="time">02:16</span><span class="author-name">习大大:</span>终于能发言了，大家好~</p>
+								<p><span class="time">02:16</span><span class="author-name">李克强:</span>终于能发言了，终于能发言了，大家好~</p>
+								<p><span class="time">02:16</span><span class="author-name">刘德华:</span>终于能发言了，大家好~</p>
+								<p><span class="time">02:16</span><span class="author-name">姜文:</span>终于能发言了，大家好</p>
+							</div>						
+						</div>
+						<div id="msg_content_2">
+							<div class="client-name">哈卡斯1</div>
+							<div class="msg-container"></div>						
+						</div>
+						<div id="msg_content_3">
+							<div class="client-name">哈卡斯3</div>
+							<div class="msg-container"></div>						
+						</div>
+						<div id="msg_content_4">
+							<div class="client-name">哈卡斯5</div>
+							<div class="msg-container"></div>						
+						</div>
+					</div>
+					<div class="msg-content-entry">
+						<textarea name="" id="" cols="30" rows="10"></textarea>
+						<span class="btn btn-send p-right">发送</span>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
