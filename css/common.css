@@ -1,4 +1,7 @@
-body{background:url(../images/bg-zhibo.jpg) no-repeat center center;background-size:100% 100%}
+*{outline:none;}
+body{background:url(../images/bg-zhibo.jpg) no-repeat center center;background-size:100% 100%;height:755px;width:100%;}
+textarea{resize:none;}
+.background-image{width:100%;height:100%;position:fixed;_position:absolute;left:0px;top:0px;z-index:-1;}
 .top{height:45px;line-height:45px;background-color:#0f4377;}
 .top .login,.top .register{position:absolute;top:7px;right:20px;width:70px;height:32px;background-position:-202px -87px;line-height:32px;text-align:center;}
 .top .login{right:110px;}
@@ -29,8 +32,11 @@ span.ico-level-moon{background-position:-305px -7px;height:22px;}
 span.ico-level-star{background-position:-340px -9px;height:22px;}
 span.ico-level-block{background-position:-373px -7px;height:22px;}
 .btn{white-space:nowrap;width:auto;background-position:9999px 9999px;cursor:pointer;}
-.btn-msgEdit{width:40px;text-align:center;background-position:-351px -51px;font-size:12px;font-family:"\5B8B\4F53";line-height:20px;}
+.btn-msgEdit,.btn-accept,.btn-reject{width:40px;text-align:center;background-position:-351px -51px;font-size:12px;font-family:"\5B8B\4F53";line-height:20px;}
+.btn-reject{background-position:-232px -51px}
+.btn-accept{background-position:-294px -51px}
 .btn-send{background-position:-315px -138px;width:76px;height:26px;text-align:center;line-height:26px;text-indent:0;}
+.btn-readmore{width:100px;height:32px;background-position:-291px -87px;text-align:center;line-height:32px;}
 
 .side-right .tab,.side-right .video{margin-top:10px;}
 .madel{margin-top:10px;}
@@ -64,12 +70,14 @@ span.ico-level-block{background-position:-373px -7px;height:22px;}
 .tab-menu{height:50px;}
 .tab-menu li{height:50px;float:left;padding:0px 15px;line-height:50px;}
 .tab-menu .ui-tabs-active,.tab-container{background:url(../images/bg-madel-body.png) repeat;}
-.tab-container{height:214px;padding:15px;}
+.tab-container{height:214px;padding:15px;position:relative;}
+.tab-container div,.tab-container p{color:#b7ad99;}
 .tab-menu li a{color:#fff;text-decoration:none;}
 .video-play{height:397px;overflow:hidden;}
 .curriculum{background-position:-291px -87px;width:100px;height:32px;text-align:center;line-height:32px;margin-left:45px;margin-right:45px;}
 .ico-image input{opacity:0;filter:alpha(opacity=0);}
 .ico-image {overflow:hidden;}
+.pos-down-right{position:absolute;bottom:15px;right:15px;}
 
 
 .dialog{overflow:hidden;position:relative;}
@@ -128,6 +136,20 @@ span.ico-level-block{background-position:-373px -7px;height:22px;}
 .dialog-order .dialog-body textarea{width:100%;height:100px;border:0;background:0; }
 .dialog-order .dialog-head .btn-close{font-size:18px;color:#fff;font-weight:bold;cursor:pointer;position:absolute;right:10px;top:5px;}
 
+.dialog-askAndAnswer{background:#1e3d58;width:476px;}
+.dialog-askAndAnswer .dialog-head{width:100%;left:0px;top:0px;height:35px;border-bottom:1px solid #8f9eac;text-align:center;line-height:35px;}
+.dialog-askAndAnswer .dialog-head .btn-close{font-size:18px;color:#fff;font-weight:bold;cursor:pointer;position:absolute;right:10px;top:5px;}
+.dialog-askAndAnswer .item3A{margin:10px 6px;padding:10px;border:1px solid #8f9eac}
+.dialog-askAndAnswer .item-container{height:300px;overflow:auto;}
+.dialog-askAndAnswer .item-group{margin-bottom:30px;}
+
+.dialog-orderDetail{background:#1e3d58;width:476px;}
+.dialog-orderDetail .dialog-head{width:100%;left:0px;top:0px;height:35px;border-bottom:1px solid #8f9eac;text-align:center;line-height:35px;}
+.dialog-orderDetail .dialog-head .btn-close{font-size:18px;color:#fff;font-weight:bold;cursor:pointer;position:absolute;right:10px;top:5px;}
+.dialog-orderDetail .time{display:block;text-align:center;font-size:18px;padding:10px;}
+.dialog-orderDetail .orderDetail{line-height:27px;color:#c7ced5;font-size:12px;margin:10px;}
+.dialog-orderDetail .item-container{height:300px;overflow:auto;}
+
 .dialog-serve{width:676px;height:194px;background:url(../images/bg-dialog-serve.png) no-repeat 0 0;}
 .dialog-serve .dialog-head{position:absolute;width:100%;top:0px;left:0px;}
 .dialog-serve .dialog-body{height:;margin-top:120px;margin-left:25px;overflow:hidden;}
@@ -135,5 +157,25 @@ span.ico-level-block{background-position:-373px -7px;height:22px;}
 .dialog-serve .dialog-head .btn-close{font-size:18px;color:#fff;font-weight:bold;cursor:pointer;position:absolute;right:15px;top:8px;height:30px;}
 .dialog-serve .dialog-head .logo{float:left;margin:10px;}
 .no-title .ui-dialog-titlebar{display: none;}
-.ui-widget-overlay{width:100%;height:100%;position:fixed;top:0px;left:0px;z-index:999;}
+.ui-widget-overlay{width:99%;height:99%;position:fixed;top:0px;left:0px;z-index:999;}
 .ui-dialog{z-index:9999;}
+.ui-slider {
+position: relative;
+text-align: left;
+height:0.8em;
+background:#eee;
+}
+.ui-slider-horizontal .ui-slider-handle {
+top: -.1em;
+margin-left: -.3em;
+}
+.ui-slider .ui-slider-handle {
+position: absolute;
+z-index: 2;
+width: 1em;
+height: 1em;
+cursor: default;
+-ms-touch-action: none;
+touch-action: none;
+}
+.sounds-slider,.speaker-slider{width:200px;position:absolute;top:-10px;display:none;}

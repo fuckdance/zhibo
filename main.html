@@ -13,33 +13,52 @@
 		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 		<script type="text/javascript" src="js/jquery.emoticons.js"></script>
 		<script type="text/javascript">
-			
-			$(function(){// 主要方法
+			function dialog4Zhibo(dialogSelector,opts){ // 弹窗
 				var dialogSettings={
 					modal:true,
 					dialogClass:'no-title',
 					create:function(){
 						var dialog=$(this);
+						$('body').css('overflow','hidden');
 						dialog.tabs();
 						$(this).find('.btn-close').click(function(){
 							dialog.dialog('destroy');
+							$('body').css('overflow','auto');
 						});
 					}
 				};
 				
-				$('.curriculum').bind('click',function(){$('<div></div>').append($('.dialog-timetable').clone()).dialog($.extend({width:480},dialogSettings))});//课程安排
-				$('.top .more').bind('click',function(){$('<div></div>').append($('.dialog-serve').clone()).dialog($.extend({width:646},dialogSettings))});//更多客服
-				$('.btn-askOrder').bind('click',function(){$('<div></div>').append($('.dialog-order').clone()).dialog($.extend({width:480},dialogSettings))});//喊单
-				$('.btn-client-privateMsg').bind('click',function(){$('<div></div>').append($('.dialog-client').clone()).dialog($.extend({width:510},dialogSettings))});//我的私聊客户
-				$('.btn-teacher-privateMsg').bind('click',function(){$('<div></div>').append($('.dialog-teacher').clone()).dialog($.extend({width:510},dialogSettings))});//我的私聊老师
+				$('<div></div>').append($(dialogSelector).clone()).dialog($.extend(dialogSettings,opts||{}));
+			
+			}
+			
+			function clearScreenMsg(msgContainer){ //清屏
+				$(msgContainer).html('');
+			}
+			
+			function msgAutoScrool(scrollContainer,flag){// 是否自动滚动
+					flag=flag||false;
+					flag?(function(){$(scrollContainer).animate({scrollTop:$(scrollContainer)[0].scrollHeight});window._scrollTime=setTimeout(arguments.callee,2000)})():(function(){clearTimeout(window._scrollTime)})();
 				
+			}
+			
+			$(function(){// 主要方法调用			
 				
+				$('.curriculum').bind('click',function(){dialog4Zhibo('.dialog-timetable',{width:480})});//课程安排
+				$('.top .more').bind('click',function(){dialog4Zhibo('.dialog-serve',{width:646})});//更多客服
+				$('.btn-askOrder').bind('click',function(){dialog4Zhibo('.dialog-orderDetail',{width:480})});//喊单
+				$('.btn-client-privateMsg').bind('click',function(){dialog4Zhibo('.dialog-client',{width:510})});//我的私聊客户
+				$('.btn-teacher-privateMsg').bind('click',function(){dialog4Zhibo('.dialog-teacher',{width:510})});//我的私聊老师
+				$('.btn-question').bind('click',function(){dialog4Zhibo('.dialog-askAndAnswer',{width:510})});//我的私聊老师
+				//$('.ico-font').fontsetting({});
+				
+				$('.sounds-slider,.speaker-slider').slider({min:10});
 				
 				$('.tab').tabs();//tabs切换
-				$('.btn-clear').bind('click',function(){$('.chat-messages-view').html('')});//清屏
+				$('.btn-clear').bind('click',function(){clearScreenMsg('.chat-messages-view')});//清屏
 				$('.btn-scroll').bind('click',function(){
 					$(this).toggleClass('flag');
-					$(this).is('.flag')?(function(){$('.chat-messages-view').animate({scrollTop:$('.chat-messages-view')[0].scrollHeight});window._scrollTime=setTimeout(arguments.callee,2000)})():(function(){clearTimeout(window._scrollTime)})();
+					msgAutoScrool('.chat-messages-view',$(this).is('.flag'));
 				});//滚动
 				$(".ico-smile").jqfaceedit({txtAreaObj:$("#chat-inputArea-input"),containerObj:$(".ico-smile").parent(),top:-226,left:1});//表情
 			});
@@ -53,6 +72,9 @@
 		</script>
 	</head>
 	<body>
+		<!--// background-image -->
+		<img src="images/bg-zhibo.jpg" alt="" class="background-image"/>
+		<!-- background-image //-->
 		<!--// top -->
 		<div class="top">
 			<span class="logo"><img src="images/logo.png" alt=""/></span>
@@ -125,6 +147,7 @@
 						<div class="tab-container">
 							<div id="tabs-1">
 								<p>1昨日的小反弹不改整体空头形态，预计行情将先反弹后下跌，操作上建议做空为主，支撑位短多。下方支撑位3430    3400，上方压力位3480   3520。注意3430到3460一线做空的机会！</p>
+								<div class="pos-down-right"><a href="" class="btn btn-readmore">查看更多</a></div>								
 							</div>
 							<div id="tabs-2">
 								<p>2昨日的小反弹不改整体空头形态，预计行情将先反弹后下跌，操作上建议做空为主，支撑位短多。下方支撑位3430    3400，上方压力位3480   3520。注意3430到3460一线做空的机会！</p>
@@ -151,7 +174,7 @@
 					<div class="chat-messages">
 						<div class="chat-messages-view">
 							<p><span class="time">02:16</span><img src="images/ico-member.png" class="ico ico-member"/><span class="author-name">习大大</span><img src="images/ico-level-crown.png" class="ico ico-level-crown"/><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
-							<p><span class="time">02:16</span><span class="author-name">李克强</span><font class="msg-content">终于能发言了，终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
+							<p><span class="time">02:16</span><span class="author-name">李克强</span><font class="msg-content">终于能发言了，终于能发言了，大家好~ <span class="btn btn-accept">同意</span> <span class="btn btn-reject">拒绝</span></font></p>
 							<p><span class="time">02:16</span><span class="author-name">刘德华</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
 							<p><span class="time">02:16</span><span class="author-name">姜文</span><font class="msg-content">终于能发言了，大家好~<span class="btn btn-msgEdit">查看</span></font></p>
 						</div>
@@ -177,6 +200,16 @@
 						<textarea name="" id="chat-inputArea-input" cols="30" rows="10"></textarea>
 					</div>
 					<div class="chat-bottom">
+							<div class="speaker-slider"></div>
+						<div class="btn btn-normal">
+							<img class="ico ico-sounds" src="images/ico-sound.png" />
+							<div class="sounds-slider"></div>
+						</div>
+						<div class="btn btn-normal">
+							<img class="ico ico-speaker" src="images/ico-speaker.png" />
+							<div class="speaker-slider"></div>
+						</div>
+						<span class="btn btn-normal">我要留言</span>
 						<span class="btn btn-send p-right">发送</span>
 					</div>
 				</div>
@@ -333,6 +366,57 @@
 					<div class="msg-content-entry">
 						<textarea name="" id="" cols="30" rows="10"></textarea>
 						<span class="btn btn-send p-right">发送</span>
+					</div>
+				</div>
+			</div>
+			
+			
+			<!--/ 回答 /-->
+			<div class="dialog dialog-askAndAnswer">
+				<div class="dialog-head">全部问题	
+					<span class="btn btn-close">×</span>
+				</div>
+				<div class="dialog-body">				
+					<div class="item-container">
+						<div class="item-group">						
+							<div class="item3A">老师在吗？有个问题要问下您，明天的创业板是走高还会走低呢？还是要观望一段时间比较好？</div>
+							<div class="item3A">观望一哈</div>
+						</div>
+						<div class="item-group">
+							<div class="item3A">明天你会在哪里</div>
+							<div class="item3A">过得怎么样</div>						
+						</div>
+						<div class="item-group">						
+							<div class="item3A">老师在吗？有个问题要问下您，明天的创业板是走高还会走低呢？还是要观望一段时间比较好？</div>
+							<div class="item3A">观望一哈</div>
+						</div>
+						<div class="item-group">
+							<div class="item3A">明天你会在哪里</div>
+							<div class="item3A">过得怎么样</div>						
+						</div>
+						<div class="item-group">						
+							<div class="item3A">老师在吗？有个问题要问下您，明天的创业板是走高还会走低呢？还是要观望一段时间比较好？</div>
+							<div class="item3A">观望一哈</div>
+						</div>
+						<div class="item-group">
+							<div class="item3A">明天你会在哪里</div>
+							<div class="item3A">过得怎么样</div>						
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--/ 喊单详情 /-->
+			<div class="dialog dialog-orderDetail">
+				<div class="dialog-head">喊单	
+					<span class="btn btn-close">×</span>
+				</div>
+				<div class="dialog-body">				
+					<div class="item-container">
+						<div class="orderDetail">
+							昨日的小反弹不改整体空头形态，预计行情将先反弹后下跌昨日的小反弹不改整体空头形态，预计行情将先反弹后下跌，操作建议做空为主，支撑位短多。下方支撑位3430    3400，上方压力位3480   3520。注意3430到3460一线做空的机会！
+							<span class="time">08:00</span>
+						</div>
 					</div>
 				</div>
 			</div>
