@@ -20,7 +20,7 @@
 					create:function(){
 						var dialog=$(this);
 						$('body').css('overflow','hidden');
-						dialog.tabs('destroy').tabs({active:0});
+						dialog.tabs({active:0});
 						dialog.find('.btn-close').bind('click',function(){//弹窗关闭
 							dialog.dialog('destroy').tabs('destroy');
 							$('body').css('overflow','auto');
