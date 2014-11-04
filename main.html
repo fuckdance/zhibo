@@ -20,14 +20,19 @@
 					create:function(){
 						var dialog=$(this);
 						$('body').css('overflow','hidden');
-						dialog.tabs({active:0});
-						$(this).find('.btn-close').click(function(){
-							dialog.dialog('destroy').remove();
+						dialog.tabs('destroy').tabs({active:0});
+						dialog.find('.btn-close').bind('click',function(){//弹窗关闭
+							dialog.dialog('destroy').tabs('destroy');
 							$('body').css('overflow','auto');
+						});
+						dialog.find('span.btn-subClose').bind('click',function(){//子窗口关闭
+							removeMsgDialog($(this).siblings('a'));
+							dialog.tabs('destroy').tabs({active:0});
+							!dialog.find('.msg-client-list li').length&&dialog.find('.btn-close').trigger('click');
 						});
 					}
 				};
-				$('<div></div>').append($(dialogSelector).clone()).dialog($.extend(dialogSettings,opts||{}));
+				$(dialogSelector).dialog($.extend(dialogSettings,opts||{}));
 			
 			}
 			
@@ -41,16 +46,26 @@
 				
 			}
 			
-			function addDialogItem(target,name){ //增加新对话框
-				var index=$(target).find('.dialog-body').find('li').length+1;				
-				$(target).find('.msg-client-list').prepend('<li><a href="#msg_content_'+index+'" class="ui-tabs-anchor">'+name+'</a><span class="btn btn-subClose"><img src="images/btn-subClose.png" alt=""></span></li>');
-				$(target).find('.msg-content-list').prepend('<div id="msg_content_'+index+'" ><div class="client-name">'+name+'</div><div class="msg-container"></div></div>');
-		
+			function addDialogItem(target,name){ //增加新对话框			
+				var id='_dialogToken_'+(+new Date());
+				$(target).find('.msg-client-list').prepend('<li><a href="#'+id+'" class="ui-tabs-anchor">'+name+'</a><span class="btn btn-subClose"><img src="images/btn-subClose.png" alt=""></span></li>');
+				$(target).find('.msg-content-list').prepend('<div id="'+id+'" ><div class="client-name">'+name+'</div><div class="msg-container"></div></div>');
+				$(target).tabs({active:0});
 			}
 			
 			
 			function scrollBottom(scrollContainer){ //滚到页面底部
 				$(scrollContainer).scrollTop($(scrollContainer)[0].scrollHeight||$(scrollContainer).height());
+			}
+			
+			function removeMsgDialog(evtTarget){ // 移出对话框
+				evtTarget=$(evtTarget);
+				var href=evtTarget.attr('href');
+				if(/^#\w+/.test(href)){
+					evtTarget.closest('li').remove();
+					$(href).remove();
+				}
+					
 			}
 			
 			$(function(){// 主要方法调用			
@@ -64,11 +79,13 @@
 				//$('.ico-font').fontsetting({});
 				
 				$('.teacher-list .author-name').bind('click',function(evt){
-					addDialogItem('.dialog-teacher',$(evt.target).text());
-					dialog4Zhibo('.dialog-teacher',{width:510});
+					addDialogItem('.dialog-client',$(evt.target).text());
+					dialog4Zhibo('.dialog-client',{width:510});
 				});
 				
-				$('.sounds-slider,.speaker-slider').slider({min:10});
+				$('.chat-messages-view').delegate('span.btn-msgEdit','click',function(){
+					
+				});//查看
 				
 				$('.tab').tabs({active:0});//tabs切换
 				$('.btn-clear').bind('click',function(){clearScreenMsg('.chat-messages-view')});//清屏
@@ -189,9 +206,13 @@
 			</div>
 			
 			<div class="main-body">				
-				<div class="chat-public">公告栏</div>
+				<div class="chat-public">
+					<div class="quetes-content">
+						公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏公告栏
+					</div>
+				</div>
 				<div class="chat-quotes">
-					<div class="quetes-content">名语展示</div>
+					<div class="quetes-content">名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示名语展示</div>
 					<span class="btn btn-toggle"></span>
 				</div>
 				<!--// chat room -->
