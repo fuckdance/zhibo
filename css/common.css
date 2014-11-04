@@ -100,7 +100,7 @@ span.ico-level-block{background-position:-373px -7px;height:22px;}
 .dialog-teacher .msg-container .time{color:#000;float:left}
 .dialog-teacher .msg-container .author-name{color:#000;float:left;}
 .dialog-teacher .msg-content-entry{margin-left:122px;position:relative;z-index:0;background:#fff;height:86px;}
-.dialog-teacher .msg-content-entry textarea{width:100%;height:51px;border:0;resize:none;color:#000;}
+.dialog-teacher .msg-content-entry textarea{width:100%;height:51px;border:0 !important;resize:none;color:#000;}
 .dialog-teacher .msg-content-entry .btn{top:56px;}
 .dialog-teacher .client-name{color:#0e73d9;font-size:18px;text-indent:20px;border-bottom:1px solid #ccc;}
 
@@ -119,7 +119,7 @@ span.ico-level-block{background-position:-373px -7px;height:22px;}
 .dialog-client .msg-container .time{color:#000;float:left}
 .dialog-client .msg-container .author-name{color:#000;float:left;}
 .dialog-client .msg-content-entry{position:relative;z-index:0;background:#fff;height:86px;}
-.dialog-client .msg-content-entry textarea{width:100%;height:51px;border:0;resize:none;color:#000;}
+.dialog-client .msg-content-entry textarea{width:100%;height:51px;border:0 !important;resize:none;color:#000;}
 .dialog-client .msg-content-entry .btn{top:56px;}
 .dialog-client .client-name{color:#0e73d9;font-size:18px;text-indent:20px;border-bottom:1px solid #ccc;display:none;}
 
